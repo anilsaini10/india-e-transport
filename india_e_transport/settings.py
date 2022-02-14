@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'dealer',
-    'driver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

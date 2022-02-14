@@ -27,8 +27,9 @@ class Drivers_Form(models.Model):
     name = models.CharField(blank=True, max_length=50)
     email = models.CharField(blank=True, max_length=50)
     age = models.IntegerField(blank=True)
-    truck_number = models.CharField(blank=True, max_length=16)
     contact = models.IntegerField(blank=True)
+    
+    truck_number = models.CharField(blank=True, max_length=16)
     truck_capacity = models.IntegerField(blank=True)
     transporter_name = models.CharField(blank=True, max_length=50)
     driving_experience = models.IntegerField(blank=True)
