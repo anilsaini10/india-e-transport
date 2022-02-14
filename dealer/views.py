@@ -14,7 +14,11 @@ from django.contrib.auth.models import User
 
 def home(request):
 
-    return render(request, 'dealer/home.html')
+    all_vechicle = Drivers_Form.objects.all()
+
+    context = {"all_vechicle": all_vechicle}
+
+    return render(request, 'dealer/home.html', context)
 
 
 def driver(request):
@@ -28,8 +32,8 @@ def driver(request):
 
         truck_number = request.POST.get('truck_number')
         truck_capacity = request.POST.get('truck_capacity')
-        transporter_name = request.POST.get('transporter_name')
-        driving_experience = request.POST.get('driving_experience')
+        transporter_name = request.POST.get('truck_name')
+        driving_experience = request.POST.get('driving_exp')
      
         city1 = request.POST.get('city1')
         state1 = request.POST.get('state1')
@@ -38,7 +42,7 @@ def driver(request):
         city3 = request.POST.get('city3')
         state3 = request.POST.get('state3')
 
-        if(Drivers_Form.objects.filter(email).exists()):
+        if(Drivers_Form.objects.filter(email = email).exists()):
             old_user = Drivers_Form( username=username, email=email, name=name,age=age,contact=contact,
                                    truck_number=truck_number, truck_capacity=truck_capacity, transporter_name=transporter_name, driving_experience=driving_experience,
                                    city1=city1, city2=city2, city3=city3, state1=state1, state2=state2, state3=state3 )
@@ -65,7 +69,7 @@ def driver(request):
             login(request,user)
             return render(request, 'dealer/home.html')
 
-    return render(request, 'dealer/home.html')
+    return render(request, 'dealer/driver-form.html')
 
 
 def dealer(request):

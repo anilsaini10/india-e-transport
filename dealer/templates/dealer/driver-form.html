@@ -42,7 +42,7 @@
             }
         }
     </style>
-    <form>
+    <form method="POST" action="{% url 'driver-form' %}">
         {% csrf_token %}
         <div class="container" style="display: flex; justify-content: center;">
             <div class="mobile">
